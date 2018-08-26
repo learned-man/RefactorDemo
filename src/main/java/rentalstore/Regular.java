@@ -7,7 +7,17 @@ package rentalstore;
  */
 public class Regular extends Movie{
 
-    public Regular(String title, int priceCode) {
-        super(title, priceCode);
+    public Regular(){
+
     }
+
+    @Override
+    public double getAmount(Rental each) {
+        double amount = 2;
+        if (each.getDayRented() > 2) {
+            amount += (each.getDayRented() - 2) * 1.5;
+        }
+        return amount;
+    }
+
 }
