@@ -14,7 +14,7 @@ public class Employee {
     }
 
     int payAmount() throws Exception{
-        return Factory.getEmployee(type,this).payAmount();
+        return ProxyFactory.getEmployeeProxy(type,this).payAmount();
     }
 
     public void setMonthlySalary(int monthlySalary) {
