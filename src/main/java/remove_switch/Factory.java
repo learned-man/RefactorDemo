@@ -9,14 +9,14 @@ public class Factory {
     static final int ENGINEER = 0;
     static final int SALESMAN = 1;
     static final int MANAGER = 2;
-    public static Employee getEmployee(int type) throws Exception{
+    public static Employee getEmployee(int type,Employee employee){
         switch (type) {
             case ENGINEER:
-                return new Engineer();
+                return new Engineer(employee);
             case SALESMAN:
-                return new Salesman();
+                return new Salesman(employee);
             case MANAGER:
-                return new Manager();
+                return new Manager(employee);
             default:
                 throw new RuntimeException("Incorrect employee");
 

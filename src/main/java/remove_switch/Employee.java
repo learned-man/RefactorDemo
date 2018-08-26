@@ -2,9 +2,9 @@ package remove_switch;
 
 public class Employee {
     private int type;
-    protected int monthlySalary;
-    protected int commission;
-    protected int bonus;
+    private int monthlySalary;
+    private int commission;
+    private int bonus;
 
     public Employee() {
     }
@@ -14,7 +14,7 @@ public class Employee {
     }
 
     int payAmount() throws Exception{
-        return Factory.getEmployee(type).payAmount();
+        return Factory.getEmployee(type,this).payAmount();
     }
 
     public void setMonthlySalary(int monthlySalary) {
@@ -27,5 +27,17 @@ public class Employee {
 
     public void setBonus(int bonus) {
         this.bonus = bonus;
+    }
+
+    public int getMonthlySalary() {
+        return monthlySalary;
+    }
+
+    public int getCommission() {
+        return commission;
+    }
+
+    public int getBonus() {
+        return bonus;
     }
 }

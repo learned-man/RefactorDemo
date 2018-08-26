@@ -6,7 +6,14 @@ package remove_switch;
  * @Description:
  */
 public class Engineer extends Employee{
+
+    private Employee employee;
+
+    public Engineer(Employee employee){
+        this.employee=employee;
+    }
+
     int payAmount(){
-        return monthlySalary;
+        return employee.getMonthlySalary();
     }
 }
