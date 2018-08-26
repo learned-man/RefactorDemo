@@ -13,7 +13,7 @@ public class Employee {
         this.type = type;
     }
 
-    int payAmount() throws Exception{
+    int payAmount(){
         return ProxyFactory.getEmployeeProxy(type,this).payAmount();
     }
 
