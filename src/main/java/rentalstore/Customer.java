@@ -19,7 +19,7 @@ public class Customer {
         return name;
     }
 
-    public String statement()  {
+    public String statement() throws Exception {
         double totalAmount = 0;
         int frequentRenterPoints = 0;
         Enumeration rentals = this.rentals.elements();
@@ -27,13 +27,7 @@ public class Customer {
         while (rentals.hasMoreElements()) {
             double thisAmount = 0;
             Rental each = (Rental) rentals.nextElement();
-
-            try {
-                thisAmount += MovieFactory.getMovie(each.getMovie().getPriceCode()).getAmount(each);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
+            thisAmount += MovieFactory.getMovie(each.getMovie().getPriceCode()).getAmount(each);
             //add frequent renter points
             frequentRenterPoints++;
             //add bonus for a two day new release rental
@@ -45,10 +39,35 @@ public class Customer {
             result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(thisAmount) + "\n";
             totalAmount += thisAmount;
         }
-
         //add footer lines
         result += "Amount owed is" + String.valueOf(totalAmount) + "\n";
         result += "You earned" + String.valueOf(frequentRenterPoints) + " frequent renter points";
+        return result;
+    }
+
+    public String htmlStatement() throws Exception {
+        double totalAmount = 0;
+        int frequentRenterPoints = 0;
+        Enumeration rentals = this.rentals.elements();
+        String result = "<H1>Rental Record for <EM>" + getName() + "</EM></H1><P>\n";
+        while (rentals.hasMoreElements()) {
+            double thisAmount = 0;
+            Rental each = (Rental) rentals.nextElement();
+            thisAmount += MovieFactory.getMovie(each.getMovie().getPriceCode()).getAmount(each);
+            //add frequent renter points
+            frequentRenterPoints++;
+            //add bonus for a two day new release rental
+            if ((each.getMovie().getPriceCode() == MovieFactory.NEW_RELEASE) && each.getDayRented() > 1) {
+                frequentRenterPoints++;
+            }
+
+            //show figures for this rental
+            result += "\t" + each.getMovie().getTitle() + "\t" + String.valueOf(thisAmount) + "<BR>\n";
+            totalAmount += thisAmount;
+        }
+        //add footer lines
+        result += "<P>You owe<EM>" + String.valueOf(totalAmount) + "</EM><P>\n";
+        result += "On this rental You earned<EM>" + String.valueOf(frequentRenterPoints) + "</EM> frequent renter points<P>";
         return result;
     }
 }
