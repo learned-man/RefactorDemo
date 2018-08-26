@@ -1,22 +1,14 @@
 package extract_subclass;
 
 
-public class JobItem {
-    private int unitPrice;
-    private int quantity;
+public abstract class JobItem {
+
+    protected int quantity;
 
 
-    public JobItem(int unitPrice, int quantity) {
-        this.unitPrice = unitPrice;
-        this.quantity = quantity;
-    }
-
-    public int getTotalPrice(){
+    public int getTotalPrice() {
         return getUnitPrice() * quantity;
     }
 
-    public int getUnitPrice() {
-        return  unitPrice;
-    }
-
+    public abstract int getUnitPrice();
 }

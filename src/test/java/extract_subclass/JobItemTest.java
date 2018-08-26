@@ -14,7 +14,7 @@ public class JobItemTest {
 
     @Test
     public void total_price_is_500_when_getTotalPrice_given_unitPrice_is_10_and_quantity_is_5() throws Exception {
-        JobItem jobItem = new JobItem(10, 5);
+        JobItem jobItem = new UnitItem(10, 5);
         assertEquals(50, jobItem.getTotalPrice());
     }
 }
