@@ -1,21 +1,16 @@
 package rentalstore.movie;
 
-import rentalstore.model.Rental;
 import rentalstore.strategy.ChildrensPrice;
 import rentalstore.strategy.NewReleasePrice;
 import rentalstore.strategy.Price;
 import rentalstore.strategy.RegularPrice;
 
-public abstract class Movie {
+public  class Movie {
     public static final int CHILDRENS = 2;
     public static final int REGULAR = 0;
     public static final int NEW_RELEASE = 1;
     private String title;
     private Price price;
-
-    public Movie(){
-
-    }
 
     public Movie(String title, int priceCode) {
         this.title = title;
@@ -50,5 +45,4 @@ public abstract class Movie {
         return title;
     }
 
-    public abstract double getAmount(Rental each);
 }

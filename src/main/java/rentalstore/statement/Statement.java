@@ -22,8 +22,8 @@ public class Statement extends BaseStatement {
 
     @Override
     public String getFooterString(double totalAmount, int frequentRenterPoints) {
-        return "Amount owed is" + String.valueOf(totalAmount) + "\n"
-                + "You earned" + String.valueOf(frequentRenterPoints) + " frequent renter points";
+        return "Amount owed is " + String.valueOf(totalAmount) + "\n"
+                + "You earned " + String.valueOf(frequentRenterPoints) + " frequent renter points";
     }
 
 }
