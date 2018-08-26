@@ -1,10 +1,7 @@
 package rentalstore.statement;
 
-import rentalstore.Customer;
-import rentalstore.MovieFactory;
-import rentalstore.Rental;
-
-import java.util.Enumeration;
+import rentalstore.model.Customer;
+import rentalstore.model.Rental;
 
 /**
  * @Author:Knight

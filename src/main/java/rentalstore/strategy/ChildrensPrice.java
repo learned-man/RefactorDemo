@@ -1,15 +1,15 @@
-package rentalstore;
+package rentalstore.strategy;
+
+import rentalstore.model.Rental;
+import rentalstore.movie.Movie;
 
 /**
  * @Author:Knight
  * @Date:Create in 8/26/2018
  * @Description:
  */
-public class Childrens extends Movie{
+public class ChildrensPrice extends Price {
 
-    public Childrens(){
-
-    }
 
     @Override
     public double getAmount(Rental each) {
@@ -20,4 +20,8 @@ public class Childrens extends Movie{
         return amount;
     }
 
+    @Override
+    public int getPriceCode() {
+        return Movie.CHILDRENS;
+    }
 }

@@ -1,9 +1,8 @@
-package rentalstore;
+package rentalstore.model;
 
 import rentalstore.statement.HtmlStatement;
 import rentalstore.statement.Statement;
 
-import java.util.Enumeration;
 import java.util.Vector;
 
 public class Customer {
@@ -33,4 +32,6 @@ public class Customer {
     public String htmlStatement() throws Exception {
         return new HtmlStatement().getResult(this);
     }
+
+
 }

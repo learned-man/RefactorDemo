@@ -1,4 +1,6 @@
-package rentalstore;
+package rentalstore.model;
+
+import rentalstore.movie.Movie;
 
 public class Rental {
     private Movie movie;

@@ -1,8 +1,8 @@
 package rentalstore.statement;
 
-import rentalstore.Customer;
-import rentalstore.MovieFactory;
-import rentalstore.Rental;
+import rentalstore.model.Customer;
+import rentalstore.model.Rental;
+import rentalstore.movie.Movie;
 
 import java.util.Enumeration;
 
@@ -20,11 +20,11 @@ public abstract class BaseStatement {
         while (rentals.hasMoreElements()) {
             double thisAmount = 0;
             Rental each = (Rental) rentals.nextElement();
-            thisAmount += MovieFactory.getMovie(each.getMovie().getPriceCode()).getAmount(each);
+            thisAmount += each.getMovie().getPrice().getAmount(each);
             //add frequent renter points
             frequentRenterPoints++;
             //add bonus for a two day new release rental
-            if ((each.getMovie().getPriceCode() == MovieFactory.NEW_RELEASE) && each.getDayRented() > 1) {
+            if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) && each.getDayRented() > 1) {
                 frequentRenterPoints++;
             }
 

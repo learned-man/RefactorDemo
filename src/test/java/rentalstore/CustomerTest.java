@@ -1,7 +1,10 @@
 package rentalstore;
 
 import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.Test;
+import rentalstore.model.Customer;
+import rentalstore.model.Rental;
 
 /**
  * @Author:Knight
@@ -9,9 +12,17 @@ import org.junit.Test;
  * @Description:
  */
 public class CustomerTest {
+    private static Customer customer;
+
+    @BeforeClass
+    public static void init(){
+        customer=new Customer("Knight");
+       // Rental rental=new Rental(new )
+    }
+
+
     @Test
     public void shoule_return_result_when_Customer_getStatement() {
-        Customer customer=new Customer("Knight");
         String result= null;
         try {
             result = customer.statement();
@@ -24,7 +35,6 @@ public class CustomerTest {
 
     @Test
     public void shoule_return_result_when_Customer_getHtmlStatement() {
-        Customer customer=new Customer("Knight");
         String result= null;
         try {
             result = customer.htmlStatement();
