@@ -5,9 +5,12 @@ public class Employee {
     static final int SALESMAN = 1;
     static final int MANAGER = 2;
     private int type;
-    private int monthlySalary;
-    private int commission;
-    private int bonus;
+    protected int monthlySalary;
+    protected int commission;
+    protected int bonus;
+
+    public Employee() {
+    }
 
     public Employee(int type) {
         this.type = type;
