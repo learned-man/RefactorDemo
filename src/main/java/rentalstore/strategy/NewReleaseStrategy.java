@@ -8,19 +8,16 @@ import rentalstore.movie.Movie;
  * @Date:Create in 8/26/2018
  * @Description:
  */
-public class RegularPrice extends Price {
+public class NewReleaseStrategy extends MovieStrategy {
+
 
     @Override
     public double getAmount(Rental each) {
-        double amount = 2;
-        if (each.getDayRented() > 2) {
-            amount += (each.getDayRented() - 2) * 1.5;
-        }
-        return amount;
+        return each.getDayRented() * 3;
     }
 
     @Override
     public int getPriceCode() {
-        return Movie.REGULAR;
+        return Movie.NEW_RELEASE;
     }
 }
