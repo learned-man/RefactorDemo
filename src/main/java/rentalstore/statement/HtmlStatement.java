@@ -21,7 +21,7 @@ public class HtmlStatement extends BaseStatement {
     }
 
     @Override
-    public String getFooterString(double totalAmount, int frequentRenterPoints) {
+    public String getFooterString(double totalAmount, double frequentRenterPoints) {
         return "<P>You owe<EM>" + String.valueOf(totalAmount) + "</EM><P>\n"
                 + "On this rental You earned<EM>" + String.valueOf(frequentRenterPoints) + "</EM> frequent renter points<P>";
     }

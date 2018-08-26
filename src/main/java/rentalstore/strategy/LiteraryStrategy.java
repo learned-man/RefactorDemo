@@ -22,4 +22,9 @@ public class LiteraryStrategy extends MovieStrategy{
         }
         return amount;
     }
+
+    @Override
+    public double getFrequentRenterPointsStep() {
+        return 1.5;
+    }
 }

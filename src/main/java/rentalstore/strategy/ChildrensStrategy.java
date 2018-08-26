@@ -21,6 +21,11 @@ public class ChildrensStrategy extends MovieStrategy {
     }
 
     @Override
+    public double getFrequentRenterPointsStep() {
+        return 1;
+    }
+
+    @Override
     public int getPriceCode() {
         return Movie.CHILDRENS;
     }

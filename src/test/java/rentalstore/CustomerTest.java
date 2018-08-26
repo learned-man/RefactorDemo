@@ -20,10 +20,12 @@ public class CustomerTest {
         customer=new Customer("Knight");
         Rental childRental=new Rental(new Movie("猫和老鼠",Movie.CHILDRENS),3);
         Rental newRental=new Rental(new Movie("新电影",Movie.NEW_RELEASE),3);
-        Rental regularRental2=new Rental(new Movie("普通电影",Movie.REGULAR),3);
+        Rental regularRental=new Rental(new Movie("普通电影",Movie.REGULAR),3);
+        Rental literaryRental=new Rental(new Movie("文艺片",Movie.LITERARY),3);
         customer.addRental(childRental);
         customer.addRental(newRental);
-        customer.addRental(regularRental2);
+        customer.addRental(regularRental);
+        customer.addRental(literaryRental);
     }
 
 

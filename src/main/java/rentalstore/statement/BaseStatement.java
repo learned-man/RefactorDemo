@@ -14,7 +14,7 @@ import java.util.Enumeration;
 public abstract class BaseStatement {
     public String getResult(Customer customer) throws Exception {
         double totalAmount = 0;
-        int frequentRenterPoints = 0;
+        double frequentRenterPoints = 0;
         Enumeration rentals = customer.getRentals().elements();
         String result = getHeaderString(customer);
         while (rentals.hasMoreElements()) {
@@ -22,10 +22,10 @@ public abstract class BaseStatement {
             Rental each = (Rental) rentals.nextElement();
             thisAmount += each.getMovie().getPrice().getAmount(each);
             //add frequent renter points
-            frequentRenterPoints++;
+            frequentRenterPoints+=each.getMovie().getPrice().getFrequentRenterPointsStep();
             //add bonus for a two day new release rental
             if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) && each.getDayRented() > 1) {
-                frequentRenterPoints++;
+                frequentRenterPoints+=each.getMovie().getPrice().getFrequentRenterPointsStep();
             }
 
             //show figures for this rental
@@ -39,6 +39,6 @@ public abstract class BaseStatement {
 
     public abstract String getHeaderString(Customer customer);
     public abstract String getRental(Rental each, double thisAmount);
-    public abstract String getFooterString(double totalAmount, int frequentRenterPoints);
+    public abstract String getFooterString(double totalAmount, double frequentRenterPoints);
 
 }

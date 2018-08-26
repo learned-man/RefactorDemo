@@ -9,6 +9,6 @@ import rentalstore.model.Rental;
  */
 public abstract class MovieStrategy {
     public abstract int getPriceCode();
-
     public abstract double getAmount(Rental each);
+    public abstract double getFrequentRenterPointsStep();
 }
